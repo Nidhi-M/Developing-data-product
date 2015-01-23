@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI and BMR Calcultor</title>
+  <meta charset="utf-8">
+  <meta name="description" content="BMI and BMR Calcultor">
+  <meta name="author" content="Nidhi Mavani">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>BMI and BMR Calcultor</h1>
+    <h2>Developing Data Products Assignment</h2>
+    <p>Nidhi Mavani<br/>Software Engineer</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Requirements</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Hi All,<br>
+For this App you may have to know the following<br>
+1. Height (in Cms)<br>
+2. Weight (in Kgs)<br>
+3. Age (in Years)<br>
+4. Gender  </p>
+
+<h2>BMI and BMR</h2>
+
+<p><b>Body Mass Index(BMI)</b>, is a scale that provides an indication of your overall body composition and fat.<br>
+<b>Basal Metabolic Rate (BMR)</b>, is a measure of the amount of energy your body requires to perform its normal vital functions at rest.<br>
+Your BMI and BMR are related in the sense that a lager body composition is generally associated with a higher BMR<br>
+If you have a BMI that falls outside the normal range, you can use your BMR to accurately determine the number of calories you need to consume each day to either gain or lose weight.
+<b> BMR </b> : Kcal/Day </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Formulae</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><b> BMI </b><br>
+BMI = weight(in kgs)/ (height in m ) ^ 2<br>
+<b> BMR </b><br>
+for men, 
+The Revised Harris-Benedict Equation:
+W
+for men,<br>
+P = 13.397 * weight(kgs) + 4.799 * height(cms) - 5.677 * age + 88.362<br>
+for women,<br>
+P = 9.247 * weight(kgs) + 3.098 * height(cms)- 4.330 * age + 447.593   </p>
+
+<p>Example Data  </p>
+
+<pre><code class="r">weight = 75
+height = 172
+age = 25
+gender =&quot;male&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>R code</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><b> BMI </b>    </p>
+
+<pre><code class="r">bmi&lt;-function(weight,height){weight/((height/100)^2)}
+bmi(weight,height)
+</code></pre>
+
+<pre><code>## [1] 25.35154
+</code></pre>
+
+<p><b> BMR </b>  </p>
+
+<pre><code class="r">bmrMale&lt;-function(weight,height,age){
+  13.397*weight + 4.799*height - 5.677*age + 88.362 }
+bmrFemale&lt;-function(weight,height,age){
+  9.247*weight+ 3.098*height- 4.330*age + 447.593 }
+bmrMale(weight,height,age)
+</code></pre>
+
+<pre><code>## [1] 1776.64
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>BMI Table</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>below 18.5   : underweight<br>
+18.5 to 24.9 : normal<br>
+30 to 34.9   : overweight<br>
+35 and above : obese</p>
+
+<p>Eat Healthy , Stay Healthy   </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Requirements'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Formulae'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='R code'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='BMI Table'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
